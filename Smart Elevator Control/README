@@ -1,0 +1,190 @@
+#  LiftGrid Smart Elevator Control System – ER Design
+
+##  Overview
+
+This project presents the **Entity-Relationship (ER) design** for a smart elevator control platform built for large-scale infrastructure systems such as corporate buildings, malls, airports, hospitals, and residential complexes.
+
+The system is designed to manage:
+
+* Multiple buildings
+* Multiple elevators per building
+* Real-time ride requests
+* Elevator assignment and execution
+* Status monitoring
+* Maintenance tracking
+* Usage analytics
+
+---
+
+##  Objective
+
+To design a **normalized, scalable, and real-world database model** that supports:
+
+* Efficient elevator allocation
+* Floor-level request tracking
+* Operational monitoring
+* Historical logging for analytics
+* Maintenance lifecycle tracking
+
+---
+
+##  System Design Approach
+
+The system is modeled across **four logical layers**:
+
+### 1.  Structure Layer
+
+Defines the physical infrastructure:
+
+* Building
+* Floor
+* Shaft
+* Elevator
+
+---
+
+### 2.  Mapping Layer
+
+Handles many-to-many relationships:
+
+* Elevator ↔ Floor (via `elevator_floor`)
+
+---
+
+### 3.  Operational Layer
+
+Captures the ride lifecycle:
+
+* Ride Request → Assignment → Ride Execution
+
+---
+
+### 4.  State & History Layer
+
+Tracks dynamic and historical data:
+
+* Elevator Status (real-time state)
+* Maintenance Logs (history)
+* Ride Logs (analytics)
+
+
+---
+
+## 🧩 Entities Included
+
+### Core Infrastructure
+
+* `building`
+* `floor`
+* `shaft`
+* `elevator`
+
+### Mapping
+
+* `elevator_floor`
+
+### Operations
+
+* `ride_request`
+* `ride_assignment`
+* `ride`
+
+### State & Monitoring
+
+* `elevator_status`
+
+### Maintenance
+
+* `maintenance_log`
+
+---
+
+## ⚙️ Key Design Decisions
+
+### ✔ Separation of Concerns
+
+* Static data (Elevator) is separated from dynamic data (Elevator Status)
+
+---
+
+### ✔ Lifecycle Modeling
+
+* Ride process is split into:
+
+  * Request
+  * Assignment
+  * Execution
+
+---
+
+### ✔ Many-to-Many Handling
+
+* Elevators serving multiple floors is handled using a junction table
+
+---
+
+### ✔ Historical Integrity
+
+* Maintenance and ride logs are stored separately to preserve history
+
+---
+
+### ✔ Real-World Enhancements
+
+* Request direction (Up/Down)
+* Priority (Normal, High, Emergency)
+* Passenger count per ride
+* Status reason tracking
+
+---
+
+##  Normalization & Constraints
+
+* All entities have proper **Primary Keys (PK)**
+* Relationships enforced via **Foreign Keys (FK)**
+* Many-to-many relationships handled via **junction tables**
+* Unique constraints used where required
+* Dynamic data separated from static configuration
+
+---
+
+##  How to Use
+
+1. Open the ER diagram in Eraser
+2. Review entity relationships
+3. Analyze system flow
+4. Extend for advanced features if needed
+
+---
+
+##  Future Enhancements
+
+* AI-based elevator allocation logic
+* Real-time passenger tracking
+* Zone-based elevator optimization
+* Energy efficiency analytics
+* Multi-building centralized dashboard
+
+---
+
+##  Conclusion
+
+This ER design reflects a **production-level system architecture** that balances:
+
+* Scalability
+* Maintainability
+* Real-world applicability
+
+It demonstrates strong understanding of:
+
+* Database normalization
+* System modeling
+* Event-driven architecture
+* Infrastructure-level design
+
+---
+
+## Author
+
+**Nadir Khan**
+#NKCodes | #Code&Commerce
